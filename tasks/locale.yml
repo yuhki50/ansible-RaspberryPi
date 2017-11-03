@@ -1,0 +1,25 @@
+- name: 'Locale : Change timezone to Asia/Tokyo'
+  file:
+    src: /usr/share/zoneinfo/Asia/Tokyo
+    dest: /etc/localtime
+    owner: root
+    group: root
+    state: link
+
+- name: 'Locale : Generate locale'
+  lineinfile:
+    dest: /etc/locale.gen
+    line: ja_JP.UTF-8 UTF-8
+    regexp: ^#?\s*ja_JP.UTF-8 UTF-8
+  register: generate_locale
+  changed_when: no
+
+- name: 'Locale : Generate locale.gen'
+  command: locale-gen
+  changed_when: generate_locale|changed
+
+- name: 'Locale : Change locale'
+  lineinfile:
+    dest: /etc/locale.conf
+    line: LANG=ja_JP.UTF-8
+    regexp: ^LANG=.*$

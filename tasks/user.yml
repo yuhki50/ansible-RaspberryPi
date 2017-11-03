@@ -1,0 +1,11 @@
+- name: 'User : Change root password'
+  user:
+    name: root
+    password: ''
+
+- name: 'User : Add user'
+  user:
+    name: cami
+    password: "{{ 'Pass123' | password_hash('sha512') }}"
+    shell: /bin/bash
+    groups: wheel

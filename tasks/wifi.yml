@@ -1,0 +1,17 @@
+- name: 'WIFI : Create profile'
+  become: yes
+  template:
+    src: wifi/wlan0-WLX402Y.j2
+    dest: /etc/netctl/wlan0-WLX402Y
+    owner: root
+    group: root
+    mode: 0600
+  register: create_profile
+
+- name: 'WIFI : Enable auto connect'
+  command: netctl enable wlan0-WLX402Y
+  when: create_profile|changed
+
+- name: 'WIFI : Connect'
+  command: netctl start wlan0-WLX402Y
+  when: create_profile|changed

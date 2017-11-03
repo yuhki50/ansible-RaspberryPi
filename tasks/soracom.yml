@@ -1,0 +1,5 @@
+- name: 'SORACOM : Download script'
+  get_url:
+    url: https://soracom-files.s3.amazonaws.com/setup_air.sh
+    dest: /tmp/setup_air.sh
+    mode: 0755

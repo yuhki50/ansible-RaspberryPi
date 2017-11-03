@@ -1,0 +1,5 @@
+- name: 'Hostname : Change hostname'
+  lineinfile:
+    dest: /etc/hostname
+    line: cami
+    regexp: ^.*$

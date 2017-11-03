@@ -1,0 +1,13 @@
+#- import_tasks: system-upgrade.yml  # first task
+#- import_tasks: package.yml
+#- import_tasks: package-dev.yml
+#- import_tasks: locale.yml
+#- import_tasks: hostname.yml
+#- import_tasks: user.yml
+#- import_tasks: sudo.yml
+#- import_tasks: keymap.yml
+#- import_tasks: wifi.yml
+- import_tasks: soracom.yml
+#- import_tasks: display.yml
+#- import_tasks: raspi-config.yml
+#- import_tasks: wifi-ap.yml

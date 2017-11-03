@@ -1,0 +1,10 @@
+- name: System upgrade
+#  apt:
+#    autoclean: yes
+#    autoremove: yes
+#    update_cache: yes
+#    upgrade: dist
+
+  pacman:
+    update_cache: yes
+    upgrade: yes

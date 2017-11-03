@@ -1,0 +1,5 @@
+- name: 'Package : Install packages'
+  pacman:
+    name: '{{ item }}'
+  with_items:
+  - git
