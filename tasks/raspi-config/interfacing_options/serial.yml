@@ -1,0 +1,9 @@
+- name: 'raspi-config : Get serial'
+  command: raspi-config nonint get_serial
+  register: get_serial
+  become: yes
+  changed_when: no
+
+- name: 'raspi-config : Enable serial'
+  command: raspi-config nonint do_serial {{ RASPBERRYPI_SERIAL_ENABLE }}
+  when: get_serial.stdout | int != RASPBERRYPI_SERIAL_ENABLE

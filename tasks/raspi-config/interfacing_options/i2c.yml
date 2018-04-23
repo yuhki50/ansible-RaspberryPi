@@ -1,0 +1,10 @@
+- name: 'raspi-config : Get I2C'
+  command: raspi-config nonint get_i2c
+  register: get_i2c
+  become: yes
+  changed_when: no
+
+- name: 'raspi-config : Enable I2C'
+  command: raspi-config nonint do_i2c {{ RASPBERRYPI_I2C_ENABLE }}
+  become: yes
+  when: get_i2c.stdout | int != RASPBERRYPI_I2C_ENABLE

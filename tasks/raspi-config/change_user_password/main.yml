@@ -1,0 +1,5 @@
+- name: 'raspi-config : Change user password'
+  user:
+    name: pi
+    password: '{{ RASPBERRYPI_PI_USER_PASSWORD | password_hash("sha512") }}'
+  become: yes

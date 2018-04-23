@@ -1,0 +1,14 @@
+- name: 'Keyboard : Update configuration'
+  debconf:
+    name: keyboard-configuration
+    question: '{{ item.key }}'
+    value: '{{ item.value }}'
+    vtype: '{{ item.vtype }}'
+  become: yes
+  register: update_keyboard
+  with_items: '{{ RASPBERRYPI_KEYBOARD_LAYOUT }}'
+
+- name: 'Keyboard : Reload configuration'
+  command: invoke-rc.d keyboard-setup start
+  become: yes
+  when: update_keyboard is changed

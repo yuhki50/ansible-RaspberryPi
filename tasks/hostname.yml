@@ -1,5 +1,13 @@
-- name: 'Hostname : Change hostname'
+- name: 'Hostname : Change /etc/hostname'
   lineinfile:
     dest: /etc/hostname
-    line: cami
+    line: '{{ RASPBERRYPI_HOSTNAME }}'
     regexp: ^.*$
+  become: yes
+
+- name: 'Hostname : Change /etc/hosts'
+  lineinfile:
+    dest: /etc/hosts
+    line: "127.0.1.1\t{{ RASPBERRYPI_HOSTNAME }}"
+    regexp: ^127.0.1.1.*$
+  become: yes

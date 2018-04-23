@@ -1,0 +1,6 @@
+- import_tasks: change_user_password/main.yml
+- import_tasks: network_options/main.yml
+- import_tasks: boot_options/main.yml
+- import_tasks: localisation_options/main.yml
+- import_tasks: interfacing_options/main.yml
+- import_tasks: advanced_options/main.yml

@@ -1,5 +1,6 @@
 - name: 'Package : Install packages'
-  pacman:
+  apt:
     name: '{{ item }}'
+  become: yes
   with_items:
-  - git
+  - tig

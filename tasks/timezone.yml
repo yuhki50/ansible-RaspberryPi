@@ -1,8 +1,8 @@
-- name: 'Locale : Update configuration'
+- name: 'Timezone : Update configuration'
   debconf:
-    name: locales
+    name: tzdata
     question: '{{ item.key }}'
     value: '{{ item.value }}'
     vtype: '{{ item.vtype }}'
   become: yes
-  with_items: '{{ RASPBERRYPI_LOCALE }}'
+  with_items: '{{ RASPBERRYPI_TIMEZONE }}'

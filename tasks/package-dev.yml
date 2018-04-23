@@ -1,8 +1,0 @@
-- name: 'Package dev : Install packages'
-  pacman:
-    name: '{{ item }}'
-  with_items:
-  - nmap
-  - tmux
-  - uucp
-  - vim

@@ -1,0 +1,8 @@
+- import_tasks: camera.yml
+- import_tasks: ssh.yml
+- import_tasks: vnc.yml
+- import_tasks: spi.yml
+- import_tasks: i2c.yml
+- import_tasks: serial.yml
+- import_tasks: 1-wire.yml
+- import_tasks: remote_gpio.yml

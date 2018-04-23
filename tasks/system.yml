@@ -1,0 +1,7 @@
+- name: 'System : Upgrade'
+  apt:
+    autoclean: yes
+    autoremove: yes
+    update_cache: yes
+    upgrade: dist
+  become: yes

@@ -3,3 +3,9 @@
     url: https://soracom-files.s3.amazonaws.com/setup_air.sh
     dest: /tmp/setup_air.sh
     mode: 0755
+  register: get_url
+
+- name: 'SORACOM : Run script'
+  command: /tmp/setup_air.sh
+  become: yes
+  when: get_url is changed
