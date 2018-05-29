@@ -2,6 +2,7 @@
   apt:
     autoclean: yes
     autoremove: yes
+    purge: yes
     update_cache: yes
     upgrade: dist
   become: yes

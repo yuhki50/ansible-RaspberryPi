@@ -5,10 +5,14 @@
     value: '{{ item.value }}'
     vtype: '{{ item.vtype }}'
   become: yes
-  register: update_keyboard
+  register: update_configuration
   with_items: '{{ RASPBERRYPI_KEYBOARD_LAYOUT }}'
 
 - name: 'Keyboard : Reload configuration'
-  command: invoke-rc.d keyboard-setup start
+  shell: |
+    dpkg-reconfigure -f noninteractive keyboard-configuration
+    invoke-rc.d keyboard-setup start
+    setsid sh -c 'exec setupcon -k --force <> /dev/tty1 >&0 2>&1'
+    udevadm trigger --subsystem-match=input --action=change
   become: yes
-  when: update_keyboard is changed
+  when: update_configuration is changed
