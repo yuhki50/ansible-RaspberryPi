@@ -26,33 +26,23 @@ RASPBERRYPI_KEYBOARD_LAYOUT:
 - {key: keyboard-configuration/variantcode, value: OADG109A, vtype: select }
 - {key: keyboard-configuration/xkb-keymap, value: jp(OADG109A), vtype: select }
 
+RASPBERRYPI_KEYBOARD_LAYOUT2:
+- {line: 'XKBMODEL="pc105"', regexp: '^#?\s*XKBMODEL' }
+- {line: 'XKBLAYOUT="jp"', regexp: '^#?\s*XKBLAYOUT' }
+- {line: 'XKBVARIANT="OADG109A"', regexp: '^#?\s*XKBVARIANT' }
+- {line: 'XKBOPTIONS=""', regexp: '^#?\s*XKBOPTIONS' }
+- {line: 'BACKSPACE="guess"', regexp: '^#?\s*BACKSPACE' }
+
 # Locales to be generated: en_US.UTF-8 UTF-8, ja_JP.UTF-8 UTF-8
 # Default locale for the system environment: en_US.UTF-8
-RASPBERRYPI_LOCALE:
-- {key: locales/default_environment_locale, value: en_US.UTF-8, vtype: select }
-- {key: locales/locales_to_be_generated, value: 'en_US.UTF-8 UTF-8, ja_JP.UTF-8 UTF-8', vtype: multiselect }
+RASPBERRYPI_LOCALES:
+- { name: en_US.UTF-8, state: present }
+- { name: ja_JP.UTF-8, state: present }
+- { name: en_GB.UTF-8, state: absent }
 
 # Geographic area: Asia
 # Time zone: Tokyo
-RASPBERRYPI_TIMEZONE:
-- {key: tzdata/Areas, value: Asia, vtype: select }
-- {key: tzdata/Zones/Africa, value: '', vtype: select }
-- {key: tzdata/Zones/America, value: '', vtype: select }
-- {key: tzdata/Zones/Antarctica, value: '', vtype: select }
-- {key: tzdata/Zones/Arctic, value: '', vtype: select }
-- {key: tzdata/Zones/Asia, value: Tokyo, vtype: select }
-- {key: tzdata/Zones/Atlantic, value: '', vtype: select }
-- {key: tzdata/Zones/Australia, value: '', vtype: select }
-- {key: tzdata/Zones/Etc, value: UTC, vtype: select }
-- {key: tzdata/Zones/Europe, value: '', vtype: select }
-- {key: tzdata/Zones/Indian, value: '', vtype: select }
-- {key: tzdata/Zones/Pacific, value: '', vtype: select }
-- {key: tzdata/Zones/SystemV, value: '', vtype: select }
-- {key: tzdata/Zones/US, value: '', vtype: select }
-
-
-
-
+RASPBERRYPI_TIMEZONE: Asia/Tokyo
 
 
 RASPBERRYPI_PI_WIFI: raspberry

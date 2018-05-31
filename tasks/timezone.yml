@@ -1,8 +1,10 @@
 - name: 'Timezone : Update configuration'
-  debconf:
-    name: tzdata
-    question: '{{ item.key }}'
-    value: '{{ item.value }}'
-    vtype: '{{ item.vtype }}'
+  timezone:
+    name: '{{ RASPBERRYPI_TIMEZONE }}'
   become: yes
-  with_items: '{{ RASPBERRYPI_TIMEZONE }}'
+  register: update_timezone
+
+- name: 'Timezone : Reload configuration'
+  command: dpkg-reconfigure -f noninteractive tzdata
+  become: yes
+  when: update_timezone is changed
