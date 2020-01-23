@@ -1,0 +1,5 @@
+---
+- name: "raspberrypi : raspi-config : 2 Network options : N1 Hostname : Update"
+  command:
+    cmd: hostnamectl set-hostname {{ raspberrypi_hostname }}
+  become: yes

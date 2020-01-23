@@ -1,0 +1,14 @@
+---
+# raspi-configで設定する
+
+#- name: "Hostname : Change /etc/hosts"
+#  lineinfile:
+#    dest: /etc/hosts
+#    line: "127.0.1.1\t{{ RASPBERRYPI_HOSTNAME }}"
+#    regexp: ^127.0.1.1.*$
+#  become: yes
+#
+#- name: "Hostname : Apply"
+#  hostname:
+#    name: "{{ RASPBERRYPI_HOSTNAME }}"
+#  become: yes

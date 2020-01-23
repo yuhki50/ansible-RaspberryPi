@@ -1,0 +1,7 @@
+---
+- name: "System : LCD : Rotate 7inch LCD touch panel display"
+  lineinfile:
+    dest: /boot/config.txt
+    line: lcd_rotate=2
+    regexp: ^#?\s*lcd_rotate=
+  become: yes

@@ -1,0 +1,6 @@
+---
+#- name: "P2 SSH : Check enable"
+#  command:
+#    cmd: raspi-config get_ssh
+#  register: stat_ssh
+#  changed_when: no

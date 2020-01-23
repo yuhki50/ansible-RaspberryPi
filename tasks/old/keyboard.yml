@@ -1,0 +1,18 @@
+---
+- name: "Keyboard : Update configuration"
+  lineinfile:
+    dest: /etc/default/keyboard
+    line: "{{ item.line }}"
+    regexp: "{{ item.regexp }}"
+  become: yes
+  register: update_keyboard_layout
+  with_items: "{{ RASPBERRYPI_KEYBOARD_LAYOUT }}"
+
+- name: "Keyboard : Reload configuration"
+  shell: |
+    dpkg-reconfigure -f noninteractive keyboard-configuration
+    invoke-rc.d keyboard-setup start
+    setsid sh -c 'exec setupcon -k --force <> /dev/tty1 >&0 2>&1'
+    udevadm trigger --subsystem-match=input --action=change
+  become: yes
+  when: update_keyboard_layout is changed

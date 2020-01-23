@@ -1,0 +1,4 @@
+---
+- import_tasks: b1_desktop_cli.yml
+- import_tasks: b2_wait_for_network_at_boot.yml
+- import_tasks: b3_splash_screen.yml

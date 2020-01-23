@@ -1,0 +1,7 @@
+---
+- name: "1 Change user password"
+  user:
+    name: pi
+    password: "{{ raspberrypi_password | password_hash('sha512') }}"
+  become: yes
+  changed_when: no

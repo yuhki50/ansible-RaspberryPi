@@ -1,0 +1,18 @@
+---
+- name: "Locale : Generate locales"
+  locale_gen:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  become: yes
+  register: update_locales
+  with_items: '{{ RASPBERRYPI_LOCALES }}'
+
+- name: "Locale : Set default locale"
+  command: update-locale LANG=en_US.UTF-8
+  become: yes
+  register: update_locale
+
+- name: "Locale : Reload configuration"
+  command: dpkg-reconfigure -f noninteractive locales
+  become: yes
+  when: update_locales is changed or update_locale is changed

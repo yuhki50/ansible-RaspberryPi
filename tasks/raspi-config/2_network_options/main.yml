@@ -1,0 +1,4 @@
+---
+- import_tasks: n1_hostname.yml
+- import_tasks: n2_wifi.yml
+- import_tasks: n3_network_interface_names.yml

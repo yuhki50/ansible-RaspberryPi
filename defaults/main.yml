@@ -1,0 +1,29 @@
+---
+# 1 Change user password
+raspberrypi_password: raspberry
+
+# 2 Network options
+raspberrypi_hostname: raspberrypi
+#raspberrypi_wifi:
+#raspberrypi_network_interface_names:
+
+# 3 Boot options
+#raspberrypi_desktop_cli:
+#raspberrypi_wait_for_network_at_boot:
+#raspberrypi_splash_screen:
+
+# 4 localisation_options
+#raspberrypi_locale:
+#raspberrypi_timezone:
+#raspberrypi_keyboard_layout:
+#raspberrypi_wifi_country:
+
+# 5 interfacing_options
+#raspberrypi_camera_enable: no
+#raspberrypi_ssh_enable: no
+#raspberrypi_vnc_enable: no
+#raspberrypi_spi_enable: no
+#raspberrypi_i2c_enable: no
+#raspberrypi_serial_enable: no
+#raspberrypi_1wire_enable: no
+#raspberrypi_remote_gpio_enable: no

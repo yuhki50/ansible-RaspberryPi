@@ -1,0 +1,5 @@
+---
+- import_tasks: i1_change_locale.yml
+- import_tasks: i2_change_timezone.yml
+- import_tasks: i3_change_keyboard_layout.yml
+- import_tasks: i4_change_wifi_country.yml

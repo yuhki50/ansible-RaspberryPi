@@ -1,0 +1,11 @@
+---
+- name: "Timezone : Update configuration"
+  timezone:
+    name: "{{ RASPBERRYPI_TIMEZONE }}"
+  become: yes
+  register: update_timezone
+
+- name: "Timezone : Reload configuration"
+  command: dpkg-reconfigure -f noninteractive tzdata
+  become: yes
+  when: update_timezone is changed
